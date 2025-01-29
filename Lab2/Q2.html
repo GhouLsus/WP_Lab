@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviation Magazine Cover</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+
+        .top-section {
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), 
+                url("/home/lab2/220962071_WP/Lab-2/img1.jpeg"); /* Replace with the path to your airplane image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 60px;
+    border-bottom: 5px solid #ffcc00;
+    position: relative;
+    height: 300px; /* Adjust the height as needed */
+}
+
+        .top-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+        }
+
+        .top-section .input-group {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .top-section .badge {
+            background-color: #ff5733;
+            font-size: 1.2rem;
+        }
+
+        .airplane-img {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 100px;
+            height: auto;
+        }
+
+        .bottom-section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 30px;
+        }
+
+        .bottom-section .card {
+            flex: 1;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: #ffffff; /* Clean white for card background */
+        }
+
+        .card h3 {
+            color: #1e3c72; /* Match top section color */
+        }
+
+        .btn {
+            font-size: 1rem;
+            border-radius: 20px;
+        }
+
+        .btn-group button {
+            border-radius: 10px;
+        }
+
+        .badge {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .bottom-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Section -->
+    <div class="top-section">
+        <h1>Aviation Magazine</h1>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Explore the Sky">
+            <button class="btn btn-warning" type="button">Search</button>
+        </div>
+        <span class="badge">Featured Edition</span>
+    </div>
+    
+
+    <!-- Bottom Section -->
+    <div class="bottom-section">
+        <!-- First Column -->
+        <div class="card">
+            <h3>Trending Planes</h3>
+            <input type="text" class="form-control mb-2" placeholder="Subscribe to Newsletter">
+            <button class="btn btn-success w-100">Subscribe</button>
+        </div>
+
+        <!-- Second Column -->
+        <div class="card">
+            <h3>Top Picks</h3>
+            <button class="btn btn-danger btn-block mb-2">Read Now</button>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-secondary">Like</button>
+                <button type="button" class="btn btn-secondary">Share</button>
+                <button type="button" class="btn btn-secondary">Comment</button>
+            </div>
+        </div>
+
+        <!-- Third Column -->
+        <div class="card">
+            <h3>Aviation Events</h3>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Add to Calendar">
+                <button class="btn btn-info" type="button">Add</button>
+            </div>
+            <span class="badge bg-danger">Happening Soon!</span>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Timetable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+
+        .timetable-section {
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        table {
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: #004085;
+            color: white;
+        }
+
+        td, th {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Timetable Section -->
+    <div class="container">
+        <div class="timetable-section">
+            <h2 class="text-center mb-4">Class Timetable</h2>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>9:00 AM - 10:00 AM</th>
+                        <th>10:00 AM - 11:00 AM</th>
+                        <th>11:00 AM - 12:00 PM</th>
+                        <th>1:00 PM - 2:00 PM</th>
+                        <th>2:00 PM - 3:00 PM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>Data Structures</td>
+                        <td>Algorithms</td>
+                        <td>Computer Networks</td>
+                        <td>Operating Systems</td>
+                        <td>Artificial Intelligence</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>Database Systems</td>
+                        <td>Machine Learning</td>
+                        <td>Web Development</td>
+                        <td>Data Structures</td>
+                        <td>Algorithms</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>Computer Networks</td>
+                        <td>Operating Systems</td>
+                        <td>Database Systems</td>
+                        <td>Machine Learning</td>
+                        <td>Artificial Intelligence</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>Web Development</td>
+                        <td>Data Structures</td>
+                        <td>Algorithms</td>
+                        <td>Computer Networks</td>
+                        <td>Operating Systems</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>Machine Learning</td>
+                        <td>Artificial Intelligence</td>
+                        <td>Database Systems</td>
+                        <td>Web Development</td>
+                        <td>Data Structures</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Carousel Section -->
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://via.placeholder.com/800x400?text=AI+Workshop" class="d-block w-100" alt="AI Workshop">
+                    <div class="carousel-caption">
+                        <h5>Artificial Intelligence</h5>
+                        <p>Discover the latest advancements in AI technology.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/800x400?text=ML+Class" class="d-block w-100" alt="ML Class">
+                    <div class="carousel-caption">
+                        <h5>Machine Learning</h5>
+                        <p>Learn to build predictive models and analyze data.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/800x400?text=Data+Science+Event" class="d-block w-100" alt="Data Science Event">
+                    <div class="carousel-caption">
+                        <h5>Data Science</h5>
+                        <p>Uncover insights from data with modern tools.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

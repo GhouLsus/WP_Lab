@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delhi Metro Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ffefd5, #f0e68c);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px 30px;
+            border-radius: 10px;
+            width: 50%;
+            max-width: 600px;
+            border: 2px solid #4682b4;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-header h1 {
+            font-size: 24px;
+            color: #4682b4;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .form-group .radio-label {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .form-group textarea {
+            width: 100%;
+            resize: none;
+            height: 80px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #5a9bd5;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Delhi Metro Ticket Booking</h1>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="source">Source Station:</label>
+                <select id="source" name="source" required>
+                    <option value="">-- Select Source Station --</option>
+                    <option value="Rajiv Chowk">Rajiv Chowk</option>
+                    <option value="Dwarka">Dwarka</option>
+                    <option value="Noida City Centre">Noida City Centre</option>
+                    <option value="Hauz Khas">Hauz Khas</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Destination Station:</label>
+                <select id="destination" name="destination" required>
+                    <option value="">-- Select Destination Station --</option>
+                    <option value="Rajiv Chowk">Rajiv Chowk</option>
+                    <option value="Dwarka">Dwarka</option>
+                    <option value="Noida City Centre">Noida City Centre</option>
+                    <option value="Hauz Khas">Hauz Khas</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Ticket Type:</label>
+                <div class="radio-label">
+                    <input type="radio" id="single" name="ticketType" value="Single" required>
+                    <label for="single">Single Journey</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="return" name="ticketType" value="Return">
+                    <label for="return">Return Journey</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" placeholder="Enter any additional information..."></textarea>
+            </div>
+
+            <button type="submit" class="btn">Book Ticket</button>
+        </form>
+        <div class="footer">
+            <p>&copy; 2025 Delhi Metro. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
