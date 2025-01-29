@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Move Effect - Body Moves Away</title>
+</head>
+<body 
+    style="font-family: 'Times New Roman', Times, serif; background-color: whitesmoke; color: #333; margin: 0; padding: 0; overflow: hidden; transition: transform 0.1s ease-out;"
+    onmousemove="moveAway(event)">
+
+    <!-- Title Bar -->
+    <header style="background-color: beige; color: brown; text-align: center; padding: 20px 0; font-size: 2em; text-transform: uppercase; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
+        A Walk in the Park
+    </header>
+
+    <!-- Poem Content -->
+    <div class="poem" style="font-size: 1.2em; line-height: 1.8; text-align: center; margin-top: 50px; background-color: beige; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <p>I took a stroll in the <b style="font-weight: bold; color: #3498db;">park</b>,<br>
+        Where trees stood tall and <b style="font-weight: bold; color: #3498db;">dark</b>.<br>
+        The birds sang songs so <b style="font-weight: bold; color: #3498db;">sweet</b>,<br>
+        As I walked down the quiet <b style="font-weight: bold; color: #3498db;">street</b>.<br><br>
+
+        The flowers bloomed, so <b style="font-weight: bold; color: #3498db;">bright</b>,<br>
+        Bathed in the soft, warm <b style="font-weight: bold; color: #3498db;">light</b>.<br>
+        My heart felt light, my mind at <b style="font-weight: bold; color: #3498db;">peace</b>,<br>
+        As all my worries seemed to <b style="font-weight: bold; color: #3498db;">cease</b>.</p>
+    </div>
+
+    <script>
+        // JavaScript function to move the body away from the mouse pointer
+        function moveAway(event) {
+            var body = document.body;
+            var mouseX = event.clientX; // Mouse X position
+            var mouseY = event.clientY; // Mouse Y position
+
+            // Get the center of the viewport
+            var centerX = window.innerWidth / 2;
+            var centerY = window.innerHeight / 2;
+
+            // Calculate the difference from the mouse to the center of the screen
+            var deltaX = (mouseX - centerX) / 20; // Divide to control sensitivity
+            var deltaY = (mouseY - centerY) / 20; // Divide to control sensitivity
+
+            // Apply a transform to move the body away from the mouse
+            body.style.transform = 'translate(' + deltaX + 'px, ' + deltaY + 'px)';
+        }
+    </script>
+
+</body>
+</html>
