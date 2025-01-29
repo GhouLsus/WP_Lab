@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Clock & Greetings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .greeting {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffda79;
+    }
+
+    .digital-clock {
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .date {
+      font-size: 18px;
+      font-weight: 400;
+      color: #f0f0f0;
+    }
+
+    .analog-clock-container {
+      margin: 30px auto;
+      width: 200px;
+      height: 200px;
+    }
+
+    button {
+      background-color: #ffda79;
+      color: #333;
+      font-size: 18px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffd54d;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="greeting" id="greeting"></div>
+    <div class="digital-clock" id="clock"></div>
+    <div class="date" id="date"></div>
+    <div class="analog-clock-container">
+      <canvas id="analogClock" width="200" height="200"></canvas>
+    </div>
+    <button onclick="showGreeting()">Show Greeting</button>
+  </div>
+
+  <script>
+    // Function to update the digital clock and date dynamically
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('clock').textContent = timeString;
+
+      const dateString = now.toDateString();
+      document.getElementById('date').textContent = dateString;
+
+      updateAnalogClock(); // Update the analog clock
+      setTimeout(updateClock, 1000);
+    }
+
+    // Function to determine greeting based on the hour
+    function getGreeting() {
+      const now = new Date();
+      const hours = now.getHours();
+
+      if (hours >= 5 && hours < 12) {
+        return "Good Morning! ☀️";
+      } else if (hours >= 12 && hours < 17) {
+        return "Good Afternoon! 🌤️";
+      } else if (hours >= 17 && hours < 21) {
+        return "Good Evening! 🌆";
+      } else {
+        return "Good Night! 🌙";
+      }
+    }
+
+    // Function to display greeting in a dialog box
+    function showGreeting() {
+      const greeting = getGreeting();
+      alert(greeting);
+    }
+
+    // Function to draw the analog clock
+    function updateAnalogClock() {
+      const canvas = document.getElementById('analogClock');
+      const ctx = canvas.getContext('2d');
+      const now = new Date();
+
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const radius = Math.min(centerX, centerY) - 10;
+
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw clock face
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+
+      // Draw clock border
+      ctx.lineWidth = 5;
+      ctx.strokeStyle = '#6a11cb';
+      ctx.stroke();
+
+      // Draw clock hands
+      const hours = now.getHours() % 12;
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+
+      // Draw hour hand
+      drawHand(ctx, centerX, centerY, radius * 0.5, ((hours + minutes / 60) * 30) * (Math.PI / 180), 6);
+
+      // Draw minute hand
+      drawHand(ctx, centerX, centerY, radius * 0.7, ((minutes + seconds / 60) * 6) * (Math.PI / 180), 4);
+
+      // Draw second hand
+      drawHand(ctx, centerX, centerY, radius * 0.9, (seconds * 6) * (Math.PI / 180), 2, '#ff0000');
+
+      // Draw clock center
+      ctx.beginPath(); 
+      ctx.arc(centerX, centerY, 5, 0, Math.PI * 2);
+      ctx.fillStyle = '#333';
+      ctx.fill();
+    }
+
+    // Helper function to draw clock hands
+    function drawHand(ctx, x, y, length, angle, width, color = '#333') {
+      ctx.beginPath();
+      ctx.lineWidth = width;
+      ctx.strokeStyle = color;
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + length * Math.cos(angle - Math.PI / 2), y + length * Math.sin(angle - Math.PI / 2));
+      ctx.stroke();
+    }
+
+    // Initial setup
+    document.addEventListener('DOMContentLoaded', () => {
+      // Display the initial greeting
+      document.getElementById('greeting').textContent = getGreeting();
+
+      // Start the dynamic clock
+      updateClock();
+    });
+  </script>
+</body>
+</html>
