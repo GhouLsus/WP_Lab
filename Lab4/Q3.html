@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card Designer</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .controls {
+            padding: 20px;
+            background: darkseagreen;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+        .card {
+            width: 300px;
+            height: 400px;
+            padding: 20px;
+            text-align: center;
+            background-color: yellow;
+            border: 2px double black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        textarea {
+            width: 100%;
+            height: 60px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Birthday Card Designer</h1>
+    <div class="container">
+        <div class="controls">
+            <label>Choose a background color:</label>
+            <input type="color" id="bgColor">
+            <br><br>
+            <label>Choose a font:</label>
+            <select id="fontStyle">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Times New Roman">Times New Roman</option>
+            </select>
+            <br><br>
+            <label>Font size:</label>
+            <input type="number" id="fontSize" value="25">
+            <br><br>
+            <label>Choose a border style:</label>
+            <select id="borderStyle">
+                <option value="none">None</option>
+                <option value="double">Double</option>
+                <option value="solid">Solid</option>
+            </select>
+            <br><br>
+            <input type="checkbox" id="addImage" checked> Add Default Image
+            <br><br>
+            <label>Enter greeting text:</label>
+            <textarea id="greetingText">Happy Birthday, and many more</textarea>
+            <br>
+            <button id="updateCard">Update</button>
+            <button id="exportPdf">Export as PDF</button>
+        </div>
+        <div class="card" id="card">
+            <h2 id="cardText">Happy Birthday, and many more</h2>
+            <img id="cardImage" src="img2.jpg" alt="Cake" width="150">
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#updateCard').click(function() {
+                $('.card').css('background-color', $('#bgColor').val());
+                $('#cardText').css({'font-family': $('#fontStyle').val(), 'font-size': $('#fontSize').val() + 'px'});
+                $('.card').css('border', '2px ' + $('#borderStyle').val() + ' black');
+                $('#cardText').text($('#greetingText').val());
+                $('#cardImage').toggle($('#addImage').is(':checked'));
+            });
+            
+            $('#exportPdf').click(function() {
+                const { jsPDF } = window.jspdf;
+                let doc = new jsPDF();
+                doc.setFontSize(20);
+                doc.text($('#cardText').text(), 20, 40);
+                doc.save('birthday_card.pdf');
+            });
+        });
+    </script>
+</body>
+</html>

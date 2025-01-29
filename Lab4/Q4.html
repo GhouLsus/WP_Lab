@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing System</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 350px;
+        }
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Billing System</h2>
+        <label for="brand">Choose a Brand:</label>
+        <select id="brand">
+            <option value="HP">HP</option>
+            <option value="Nokia">Nokia</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Motorola">Motorola</option>
+            <option value="Apple">Apple</option>
+        </select>
+        
+        <label>Choose Product:</label><br>
+        <input type="checkbox" id="mobile" value="Mobile"> Mobile
+        <input type="checkbox" id="laptop" value="Laptop"> Laptop
+        
+        <label for="quantity">Enter Quantity:</label>
+        <input type="number" id="quantity" min="1" value="1">
+        
+        <button id="produceBill">Produce Bill</button>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            const prices = { Mobile: 500, Laptop: 1000 };
+            
+            $('#produceBill').click(function() {
+                let quantity = parseInt($('#quantity').val());
+                let total = 0;
+                let selectedProducts = [];
+                
+                if ($('#mobile').is(':checked')) {
+                    total += prices.Mobile * quantity;
+                    selectedProducts.push("Mobile");
+                }
+                if ($('#laptop').is(':checked')) {
+                    total += prices.Laptop * quantity;
+                    selectedProducts.push("Laptop");
+                }
+                
+                if (selectedProducts.length === 0) {
+                    alert("Please select at least one product.");
+                } else {
+                    alert(`Brand: ${$('#brand').val()}\nProducts: ${selectedProducts.join(", ")}\nQuantity: ${quantity}\nTotal Amount: $${total}`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
