@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            margin: 0;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Wrapper for centering and scrolling */
+        #wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        /* Ensure the body supports scrolling */
+        html, body {
+            height: 100%;
+        }
+
+        #wrapper {
+            min-height: 100vh;
+        }
+
+        /* Top container with "Quiz Time!" */
+        #top-container {
+            background: black;
+            padding: 20px 40px;
+            width: 100%;
+            border-radius: 15px 15px 0 0;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInTop 1s ease;
+        }
+
+        #top-container h2 {
+            font-size: 36px;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Main quiz container */
+        #quiz-container {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
+            overflow-y: auto;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: 'Times New Roman', Times, serif;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .question h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .answers label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+            background: black;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .answers input {
+            display: none;
+        }
+
+        .answers input:checked + label {
+            background: #feb47b;
+            color: #fff;
+            border: 2px solid #ff7e5f;
+        }
+
+        .answers label:hover {
+            background: #ff7e5f;
+        }
+
+        .answers input:checked + label:hover {
+            background: white;
+            color: white;
+        }
+
+        #submit-btn {
+            background: #ff7e5f;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #submit-btn:hover {
+            background: greenyellow;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInTop {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Ensure the page is responsive */
+        @media (max-width: 600px) {
+            #wrapper {
+                padding: 10px;
+            }
+
+            #quiz-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .question h3 {
+                font-size: 18px;
+            }
+
+            #submit-btn {
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="top-container">
+        <h2>Quiz Time!</h2>
+    </div>
+
+    <div id="quiz-container">
+        <h1>Online Quiz</h1>
+        <div id="quiz"></div>
+        <button id="submit-btn">Submit</button>
+        <div id="result" class="result"></div>
+    </div>
+</div>
+
+<script src="q1.js"></script>
+
+</body>
+</html>
