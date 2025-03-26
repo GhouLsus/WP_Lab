@@ -1,0 +1,23 @@
+<!-- work_lives/templates/work_lives/search_company.html -->
+{% extends 'work_lives/index.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h3>Search by Company</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+    </form>
+    <h4 class="mt-4">Results:</h4>
+    <ul class="list-group">
+        {% for result in results %}
+        <li class="list-group-item bg-dark text-white">
+            {{ result.person_name }} - {{ result.city }}
+        </li>
+        {% empty %}
+        <li class="list-group-item bg-dark text-white">No results found.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
