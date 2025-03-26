@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+        }
+        .success-container {
+            text-align: center;
+            padding: 20px;
+            margin: 0 auto;
+            width: 300px;
+            background-color: #333;
+            border-radius: 10px;
+        }
+        .details {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome {{ username }}</h1>
+    <div class="success-container">
+        <p class="details">Email: {{ email }}</p>
+        <p class="details">Contact Number: {{ contact_number }}</p>
+    </div>
+</body>
+</html>

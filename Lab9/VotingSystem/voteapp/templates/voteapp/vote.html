@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>How is the book ASP.NET with C# by Vipul Prakashan?</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="radio" name="choice" value="Good"> Good <br>
+            <input type="radio" name="choice" value="Satisfactory"> Satisfactory <br>
+            <input type="radio" name="choice" value="Bad"> Bad <br>
+            <button type="submit">Vote</button>
+        </form>
+    </div>
+</body>
+</html>
