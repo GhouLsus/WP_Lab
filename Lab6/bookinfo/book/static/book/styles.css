@@ -1,0 +1,54 @@
+/* book/static/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 50px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2f4f4f;
+}
+
+.book-cover {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: red;
+    padding: 10px 50px;
+    border-radius: 5px;
+}
+
+.links a:hover {
+    background-color: #0056b3;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+}

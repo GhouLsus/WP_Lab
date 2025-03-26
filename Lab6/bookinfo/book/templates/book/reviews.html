@@ -1,0 +1,20 @@
+{% load static %}
+
+<!-- book/templates/book/reviews.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Reviews</h1>
+        <p>Review 1: This book is amazing!</p>
+        <p>Review 2: A must-read for everyone!</p>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+</body>
+</html>
