@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            text-align: center;
+            padding: 50px;
+            color: white;
+        }
+        form {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid red;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            display: inline-block;
+        }
+        select, input[type="text"], input[type="submit"] {
+            padding: 8px;
+            margin: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #444;
+            color: white;
+        }
+        input[type="submit"] {
+            background-color: #e60000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <h2>Select a Car Manufacturer and Model</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="manufacturer">Manufacturer:</label>
+        <select name="manufacturer" required>
+            {% for manufacturer, image in manufacturers.items %}
+            <option value="{{ manufacturer }}">{{ manufacturer }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="model">Model Name:</label>
+        <input type="text" name="model" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

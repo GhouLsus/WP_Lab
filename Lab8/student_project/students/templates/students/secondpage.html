@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submitted Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            text-align: center;
+            padding: 50px;
+            color: white;
+        }
+        .result-container {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid red;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            display: inline-block;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #e60000;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        a:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Submitted Details</h2>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Roll Number:</strong> {{ roll }}</p>
+        <p><strong>Subject:</strong> {{ subject }}</p>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>

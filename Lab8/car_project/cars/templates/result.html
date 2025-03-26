@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            text-align: center;
+            padding: 50px;
+            color: white;
+        }
+        .result-container {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid red;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            display: inline-block;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #e60000;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        a:hover {
+            background-color: #cc0000;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Selected Car Details</h2>
+        <p><strong>Manufacturer:</strong> {{ manufacturer }}</p>
+        <p><strong>Model:</strong> {{ model }}</p>
+        {% if image %}
+            <img src="/media/{{ image }}" alt="{{ manufacturer }} Logo">
+        {% endif %}
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>
