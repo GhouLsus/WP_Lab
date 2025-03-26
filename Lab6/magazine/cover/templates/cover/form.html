@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Magazine Cover</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Design Your Magazine Cover</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <label for="image">Upload Image:</label>
+        <input type="file" name="image" required><br><br>
+        
+        <label for="bg_color">Background Color:</label>
+        <input type="color" name="bg_color" value="#FFFFFF"><br><br>
+
+        <label for="title">Title Text:</label>
+        <input type="text" name="title" required><br><br>
+
+        <label for="title_size">Title Font Size:</label>
+        <input type="number" name="title_size" value="40"><br><br>
+
+        <label for="title_color">Title Font Color:</label>
+        <input type="color" name="title_color" value="#000000"><br><br>
+
+        <label for="subtitle">Subtitle Text:</label>
+        <input type="text" name="subtitle"><br><br>
+
+        <label for="subtitle_size">Subtitle Font Size:</label>
+        <input type="number" name="subtitle_size" value="30"><br><br>
+
+        <label for="subtitle_color">Subtitle Font Color:</label>
+        <input type="color" name="subtitle_color" value="#555555"><br><br>
+
+        <button type="submit">Generate Cover</button>
+    </form>
+</body>
+</html>

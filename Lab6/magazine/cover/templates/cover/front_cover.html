@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine Cover</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body style="background-color: {{ bg_color }};">
+    <div class="cover-container">
+        <div class="cover-content">
+            {% if image %}
+                <img src="{{ image.url }}" alt="Cover Image" class="cover-image">
+            {% endif %}
+            <h1 style="font-size: {{ title_size }}px; color: {{ title_color }};">{{ title }}</h1>
+            <h2 style="font-size: {{ subtitle_size }}px; color: {{ subtitle_color }};">{{ subtitle }}</h2>
+        </div>
+    </div>
+    <a href="/">Go Back</a>
+
+    <!-- Debugging the values -->
+    <div>
+        <p>bg_color: {{ bg_color }}</p>
+        <p>title_size: {{ title_size }}px</p>
+        <p>subtitle_size: {{ subtitle_size }}px</p>
+    </div>
+</body>
+</html>
